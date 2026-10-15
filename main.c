@@ -186,6 +186,29 @@ int main() {
 
     // Переводимо час у секунди (ділимо різницю тактів на константу CLOCKS_PER_SEC)
     double exec_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+
+    // =========================================================================
+    // 4. ВИВЕДЕННЯ РЕЗУЛЬТАТІВ ТА ПЕРЕВІРКА ПОХІДНОЇ
+    // =========================================================================
+
+    // Обчислюємо значення функції f(x) та її похідної f'(x) у знайденому корені
+    double final_f = 0.25 * pow(root, 5.0) + 4.0 * pow(root + 20.0, 4.0) - 2.0 * root;
+    double final_df = 1.25 * pow(root, 4.0) + 16.0 * pow(root + 20.0, 3.0) - 2.0;
+
+    printf("\n========================================\n");
+    if (stop_flag == 1) {
+        printf("CALCULATION INTERRUPTED BY USER!\n");
+    } else {
+        printf("SUCCESSFULLY COMPLETED!\n");
+    }
+    printf("========================================\n");
+    printf("Root x           = %.8f\n", root);
+    printf("Function f(x)    = %.8f\n", final_f);
+    printf("Derivative f'(x) = %.8f\n", final_df);
+    printf("Iterations       = %u\n", total_iter);
+    printf("Time             = %.6f seconds\n", exec_time);
+    printf("========================================\n");
+
     
     return 0;
 }
